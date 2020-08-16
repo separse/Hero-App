@@ -1,0 +1,5 @@
+<div *ngIf="selected">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" *ngIf="selected.like" checked (click)="selected.like=false">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" *ngIf="!selected.like" (click)="selected.like=true">
+    <label class="form-check-label" for="exampleCheck1">Fill if you Like {{selected.name}}</label>
+</div>

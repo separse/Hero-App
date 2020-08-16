@@ -23,6 +23,9 @@ import { DetailComponent } from './detail/detail.component';
 
 import { GoodDirective } from './good.directive';
 import { AddComponent } from './add/add.component';
+import { MoviesComponent } from './movies/movies/movies.component';
+import { AddMovieComponent } from './movies/add-movie/add-movie.component';
+import { ShowMovieComponent } from './movies/show-movie/show-movie.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { AddComponent } from './add/add.component';
     AssignmentComponent,
     DetailComponent,
     GoodDirective,
-    AddComponent
+    AddComponent,
+    MoviesComponent,
+    AddMovieComponent,
+    ShowMovieComponent
   ],
   imports: [
     BrowserModule,
