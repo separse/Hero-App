@@ -1,0 +1,7 @@
+<div class="container" *ngIf="gotHero">
+<mat-card>
+  <mat-card-title>{{gotHero.name}}</mat-card-title>
+  <mat-card-subtitle>{{gotHero.born | date}}</mat-card-subtitle>
+  <mat-checkbox *ngIf="!gotHero.good" (click)="trueGood()">Mark as Good</mat-checkbox>
+  </mat-card>
+</div>

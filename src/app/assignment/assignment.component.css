@@ -1,0 +1,19 @@
+.hero {
+  font-size: large;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.vilan {
+  font-size: medium;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.addbtn {
+  align-self: flex-end;
+}

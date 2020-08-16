@@ -1,0 +1,24 @@
+<main *ngIf="funct" class="container">
+  <button mat-flat-button color="accent" class="addbtn" (click)="onClick()">Add a Hero</button>
+  <mat-list *ngFor="let item of heroes">
+    <h1 mat-subheader>{{item.born | date}}</h1>
+    <mat-list-item (click)="getHero(item)">
+      <div *ngIf="item.good; else vilan" appGood>
+        {{item.name}} is a superhero.
+      </div>
+      <ng-template matLine #vilan>
+        {{item.name}} is a superVilan.
+      </ng-template>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</main>
+<app-add (newHeroes)="onNewHero($event)" *ngIf="!funct"></app-add>
+<app-detail [gotHero]="gotHero"></app-detail>
+
+<!-- <mat-list *ngFor="let item of heroes"
+     [ngStyle]="{'color': item.good ? 'green':'red'}"
+     [ngClass]="{
+       'hero': item.good,
+       'vilan': !item.good
+      }"> -->
