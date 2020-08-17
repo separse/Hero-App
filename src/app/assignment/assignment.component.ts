@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroData } from '../hero-data';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-assignment',
@@ -8,27 +9,20 @@ import { HeroData } from '../hero-data';
 })
 export class AssignmentComponent implements OnInit {
 
-  heroes: HeroData[] = [
-    {
-      name: 'Batman',
-      born: new Date('1985-03-04'),
-      good: true
-    },
-    {
-      name: 'Joker',
-      born: new Date('1993-01-01'),
-      good: false
-    }
-  ];
   funct = true;
-
+  heroes;
   gotHero: HeroData;
-  constructor() { }
+
+  constructor(private service: HeroService) {
+
+   }
 
   ngOnInit(): void {
     // setTimeout(() => {
     //   this.funct = false;
     // }, 2000);
+    // this.heroes = this.service.heroesData;
+    this.service.heroesData.subscribe(chiz => this.heroes = chiz);
   }
 
   getHero(item): void {
@@ -36,7 +30,8 @@ export class AssignmentComponent implements OnInit {
   }
 
   onNewHero(e: HeroData): void {
-    this.heroes.push(e);
+    this.service.addHero(e).subscribe(res => console.log(res)
+    );
     this.funct = true;
   }
 

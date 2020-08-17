@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HeroData } from '../hero-data';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-detail',
@@ -9,12 +10,18 @@ import { HeroData } from '../hero-data';
 export class DetailComponent implements OnInit {
 
   @Input() gotHero: HeroData;
-  constructor() { }
+
+  constructor(private service: HeroService) { }
 
   ngOnInit(): void {
   }
 
   trueGood(): void {
     this.gotHero.good = true;
+    this.service.updateHeroes(this.gotHero).subscribe(res => console.log(res));
+  }
+
+  onDelete(): void {
+    this.service.deleteHero(this.gotHero).subscribe(res => console.log(res));
   }
 }

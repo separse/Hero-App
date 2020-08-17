@@ -2,6 +2,9 @@
 <mat-card>
   <mat-card-title>{{gotHero.name}}</mat-card-title>
   <mat-card-subtitle>{{gotHero.born | date}}</mat-card-subtitle>
-  <mat-checkbox *ngIf="!gotHero.good" (click)="trueGood()">Mark as Good</mat-checkbox>
+  <div id="button">
+    <mat-checkbox *ngIf="!gotHero.good" (click)="trueGood()">Mark as Good</mat-checkbox>
+    <button mat-flat-button color="warn" (click)="onDelete()">Delete</button>
+  </div>
   </mat-card>
 </div>

@@ -1,7 +1,9 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,18 +16,22 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 
 
-import { AppRoutingModule } from './app-routing.module';
-
-
+import { ShowMovieComponent } from './movies/show-movie/show-movie.component';
+import { AddMovieComponent } from './movies/add-movie/add-movie.component';
 import { AssignmentComponent } from './assignment/assignment.component';
-import { AppComponent } from './app.component';
+import { MoviesComponent } from './movies/movies/movies.component';
 import { DetailComponent } from './detail/detail.component';
+import { AddComponent } from './add/add.component';
+import { AppComponent } from './app.component';
 
 import { GoodDirective } from './good.directive';
-import { AddComponent } from './add/add.component';
-import { MoviesComponent } from './movies/movies/movies.component';
-import { AddMovieComponent } from './movies/add-movie/add-movie.component';
-import { ShowMovieComponent } from './movies/show-movie/show-movie.component';
+import { LoggingService } from './logging.service';
+import { HeroService } from './hero.service';
+
+
+
+
+
 
 
 @NgModule({
@@ -54,7 +60,10 @@ import { ShowMovieComponent } from './movies/show-movie/show-movie.component';
     MatCardModule,
     MatCheckboxModule
   ],
-  providers: [],
+  providers: [
+    HeroService,
+    LoggingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
