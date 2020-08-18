@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -15,24 +14,19 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 
-
 import { ShowMovieComponent } from './movies/show-movie/show-movie.component';
 import { AddMovieComponent } from './movies/add-movie/add-movie.component';
-import { AssignmentComponent } from './assignment/assignment.component';
+import { AssignmentComponent } from './Hero/assignment/assignment.component';
 import { MoviesComponent } from './movies/movies/movies.component';
-import { DetailComponent } from './detail/detail.component';
-import { AddComponent } from './add/add.component';
+import { DetailComponent } from './Hero/detail/detail.component';
+import { AddComponent } from './Hero/add/add.component';
 import { AppComponent } from './app.component';
 
-import { GoodDirective } from './good.directive';
-import { LoggingService } from './logging.service';
-import { HeroService } from './hero.service';
-
-
-
-
-
-
+import { MovieDataService } from './movies/movie-data.service';
+import { LogDataService } from './movies/log-data.service';
+import { LoggingService } from './Hero/logging.service';
+import { GoodDirective } from './Hero/good.directive';
+import { HeroService } from './Hero/hero.service';
 
 @NgModule({
   declarations: [
@@ -62,8 +56,11 @@ import { HeroService } from './hero.service';
   ],
   providers: [
     HeroService,
-    LoggingService
+    LoggingService,
+    MovieDataService,
+    LogDataService
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

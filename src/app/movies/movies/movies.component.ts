@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataMovie } from '../data-movie';
+import { MovieDataService } from '../movie-data.service';
 
 @Component({
   selector: 'app-movies',
@@ -12,26 +13,10 @@ export class MoviesComponent implements OnInit {
   selected: DataMovie;
   firstPage = true;
 
-  constructor() { }
+  constructor(private servMovieData: MovieDataService) { }
 
   ngOnInit(): void {
-    this.initials = [
-      {
-        name: 'Dark Knight',
-        year: new Date('2008'),
-        like: true
-      },
-      {
-        name: 'Pirates of the Carribean',
-        year: new Date('2015'),
-        like: true
-      },
-      {
-        name: 'Allien',
-        year: new Date('2005'),
-        like: false
-      },
-    ];
+    this.servMovieData.initailData.subscribe(res => this.initials = res);
   }
 
   onClick(item): void {
@@ -44,7 +29,8 @@ export class MoviesComponent implements OnInit {
   }
 
   newMovie(e): void {
-    this.initials.push(e);
+    this.servMovieData.addMovie(e).subscribe(res => console.log(res));
     this.firstPage = true;
   }
+
 }
