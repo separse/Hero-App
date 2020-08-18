@@ -1,2 +1,9 @@
-<app-movies></app-movies>
+<div class="container">
+<h1><a routerLink="/home">{{head}}</a></h1>
+<mat-slide-toggle color="primary" (click)="login()">
+  Login
+</mat-slide-toggle>
+</div>
+<!-- <app-movies></app-movies> -->
 <!-- <app-assignment></app-assignment> -->
+<router-outlet></router-outlet>

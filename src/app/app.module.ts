@@ -4,29 +4,32 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 
 import { ShowMovieComponent } from './movies/show-movie/show-movie.component';
-import { AddMovieComponent } from './movies/add-movie/add-movie.component';
 import { AssignmentComponent } from './Hero/assignment/assignment.component';
+import { AddMovieComponent } from './movies/add-movie/add-movie.component';
+import { EditHeroComponent } from './Hero/edit-hero/edit-hero.component';
 import { MoviesComponent } from './movies/movies/movies.component';
 import { DetailComponent } from './Hero/detail/detail.component';
 import { AddComponent } from './Hero/add/add.component';
 import { AppComponent } from './app.component';
 
 import { MovieDataService } from './movies/movie-data.service';
+import { AuthHeroService } from './Hero/auth-hero.service';
 import { LogDataService } from './movies/log-data.service';
 import { LoggingService } from './Hero/logging.service';
 import { GoodDirective } from './Hero/good.directive';
 import { HeroService } from './Hero/hero.service';
+
 
 @NgModule({
   declarations: [
@@ -37,13 +40,13 @@ import { HeroService } from './Hero/hero.service';
     AddComponent,
     MoviesComponent,
     AddMovieComponent,
-    ShowMovieComponent
+    ShowMovieComponent,
+    EditHeroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
@@ -52,13 +55,15 @@ import { HeroService } from './Hero/hero.service';
     MatDatepickerModule,
     MatListModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSlideToggleModule
   ],
   providers: [
     HeroService,
     LoggingService,
     MovieDataService,
-    LogDataService
+    LogDataService,
+    AuthHeroService
   ],
   bootstrap: [AppComponent]
 })

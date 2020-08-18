@@ -4,7 +4,8 @@
   <mat-card-subtitle>{{gotHero.born | date}}</mat-card-subtitle>
   <div id="button">
     <mat-checkbox *ngIf="!gotHero.good" (click)="trueGood()">Mark as Good</mat-checkbox>
-    <button mat-flat-button color="warn" (click)="onDelete()">Delete</button>
+    <button mat-flat-button color="primary" (click)="onEdit()" [disabled]="!isAdmin()" #edit>Edit</button>
+    <button mat-flat-button color="warn" (click)="onDelete()" #delete>Delete</button>
   </div>
   </mat-card>
 </div>

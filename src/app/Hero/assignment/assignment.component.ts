@@ -29,11 +29,11 @@ export class AssignmentComponent implements OnInit {
     this.gotHero = item;
   }
 
-  onNewHero(e: HeroData): void {
-    this.service.addHero(e).subscribe(res => console.log(res)
-    );
-    this.funct = true;
-  }
+  // onNewHero(e: HeroData): void {
+  //   this.service.addHero(e).subscribe(res => console.log(res)
+  //   );
+  //   this.funct = true;
+  // }
 
   onClick(): void {
     this.gotHero = null;

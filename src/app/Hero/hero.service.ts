@@ -27,6 +27,10 @@ export class HeroService {
     return of(this.heroes);
   }
 
+  getHeroData(name: string): Observable<HeroData> {
+    return of(this.heroes.find(x => x.name === name));
+  }
+
   addHero(e: HeroData): Observable<string> {
     this.heroes.push(e);
     this.service.printIt(e.name, 'Added');
