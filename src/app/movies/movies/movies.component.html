@@ -1,15 +1,21 @@
-<main class="container" *ngIf="firstPage">
+<main class="container">
 <div class="jumbotron">
   <h1 class="display-4">Best Movies</h1>
-  <p class="lead">In thid site you can add movies and say if it is good or bad movie.</p>
+  <p class="lead">In this site you can add movies and say if it is good or bad movie.</p>
   <hr class="my-4">
-  <a class="btn btn-primary btn-lg" href="#" role="button" style="float: right;" (click)="addMovie()">Add a Movie</a>
+  <a class="btn btn-primary btn-lg" href="#" role="button" style="float: right;" routerLink="/add">Add a Movie</a>
 </div>
 
 <div *ngFor="let item of initials">
-  <h3 [ngClass]="{'bg-success': item.like,'bg-danger': !item.like}" class="p-2 mt-2 text-white" (click)="onClick(item)">{{item.name}}: {{item.year | date:'y'}}</h3>
+  <h3
+    [ngClass]="{'bg-success': item.like,'bg-danger': !item.like}"
+    class="p-2 mt-2 text-white"
+    routerLink="/movies/{{item.name}}"
+    (click)="onClick(item)">
+    {{item.name}}: {{item.year | date:'y'}}
+  </h3>
 </div>
 </main>
 
-<app-add-movie *ngIf="!firstPage" (emitMovie)="newMovie($event)"></app-add-movie>
-<app-show-movie [selected]="selected"></app-show-movie>
+<!-- <app-add-movie *ngIf="!firstPage" (emitMovie)="newMovie($event)"></app-add-movie> -->
+<!-- <app-show-movie [selected]="selected"></app-show-movie> -->

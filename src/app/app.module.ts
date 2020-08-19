@@ -29,6 +29,7 @@ import { LogDataService } from './movies/log-data.service';
 import { LoggingService } from './Hero/logging.service';
 import { GoodDirective } from './Hero/good.directive';
 import { HeroService } from './Hero/hero.service';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { HeroService } from './Hero/hero.service';
     MoviesComponent,
     AddMovieComponent,
     ShowMovieComponent,
-    EditHeroComponent
+    EditHeroComponent,
+    EditMovieComponent
   ],
   imports: [
     BrowserModule,

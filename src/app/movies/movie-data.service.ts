@@ -57,4 +57,17 @@ export class MovieDataService {
     });
     return of('DELETED');
   }
+
+  getSelected(selected): Observable<DataMovie> {
+    return of(this.initials.find(x => x.name === selected));
+  }
+
+  editMovie(selected): Observable<string> {
+    this.initials.forEach((movie, i) => {
+      if (movie === selected) {
+        this.initials[i] = selected;
+      }
+    });
+    return of('EDITED');
+  }
 }

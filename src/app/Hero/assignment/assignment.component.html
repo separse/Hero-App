@@ -1,5 +1,5 @@
 <main class="container">
-  <button mat-flat-button color="accent" class="addbtn" (click)="onClick()" routerLink="/add">Add a Hero</button>
+  <button mat-flat-button color="accent" class="addbtn" routerLink="/add">Add a Hero</button>
   <mat-list *ngFor="let item of heroes">
     <nav><a routerLink="/heroes/{{item.name}}">
       <h1 mat-subheader>{{item.born | date}}</h1>

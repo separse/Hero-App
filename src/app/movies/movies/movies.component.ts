@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataMovie } from '../data-movie';
 import { MovieDataService } from '../movie-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
@@ -11,7 +12,7 @@ export class MoviesComponent implements OnInit {
 
   initials: DataMovie[];
   selected: DataMovie;
-  firstPage = true;
+  // firstPage = true;
 
   constructor(private servMovieData: MovieDataService) { }
 
@@ -23,14 +24,14 @@ export class MoviesComponent implements OnInit {
     this.selected = item;
   }
 
-  addMovie(): void {
-    this.selected = null;
-    this.firstPage = false;
-  }
+  // addMovie(): void {
+  //   this.selected = null;
+  //   this.firstPage = false;
+  // }
 
-  newMovie(e): void {
-    this.servMovieData.addMovie(e).subscribe(res => console.log(res));
-    this.firstPage = true;
-  }
+  // newMovie(e): void {
+  //   this.servMovieData.addMovie(e).subscribe(res => console.log(res));
+  //   this.firstPage = true;
+  // }
 
 }

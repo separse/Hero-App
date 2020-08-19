@@ -9,7 +9,7 @@ import { HeroService } from '../hero.service';
 })
 export class AssignmentComponent implements OnInit {
 
-  funct = true;
+  // funct = true;
   heroes;
   gotHero: HeroData;
 
@@ -22,7 +22,7 @@ export class AssignmentComponent implements OnInit {
     //   this.funct = false;
     // }, 2000);
     // this.heroes = this.service.heroesData;
-    this.service.heroesData.subscribe(chiz => this.heroes = chiz);
+    this.service.heroesData.subscribe(res => this.heroes = res);
   }
 
   getHero(item): void {
@@ -35,8 +35,8 @@ export class AssignmentComponent implements OnInit {
   //   this.funct = true;
   // }
 
-  onClick(): void {
-    this.gotHero = null;
-    this.funct = false;
-  }
+  // onClick(): void {
+  //   this.gotHero = null;
+  //   this.funct = false;
+  // }
 }

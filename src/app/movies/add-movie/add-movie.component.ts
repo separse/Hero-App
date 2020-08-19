@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataMovie } from '../data-movie';
+import { MovieDataService } from '../movie-data.service';
 
 @Component({
   selector: 'app-add-movie',
@@ -8,12 +9,12 @@ import { DataMovie } from '../data-movie';
 })
 export class AddMovieComponent implements OnInit {
 
-  @Output() emitMovie = new EventEmitter<DataMovie>();
+  // @Output() emitMovie = new EventEmitter<DataMovie>();
   name: string;
   year: Date;
   like: boolean;
 
-  constructor() { }
+  constructor(private serveMovieData: MovieDataService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,7 @@ export class AddMovieComponent implements OnInit {
     newMovie.like = this.like;
     newMovie.name = this.name;
     newMovie.year = this.year;
-    this.emitMovie.emit(newMovie);
+    // this.emitMovie.emit(newMovie);
+    this.serveMovieData.addMovie(newMovie).subscribe(res => console.log(res));
   }
 }
