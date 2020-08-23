@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HeroData } from './hero-data';
 import { Observable, of } from 'rxjs';
 import { LoggingService } from './logging.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -21,14 +22,22 @@ export class HeroService {
     }
   ];
 
-  constructor(private service: LoggingService) { }
+  url = 'http://localhost:8010/api/assignments';
+  urlOne = 'http://localhost:8010/api/assignment';
+
+  constructor(
+    private service: LoggingService,
+    private http: HttpClient
+    ) { }
 
   get heroesData(): Observable<HeroData[]> {
     return of(this.heroes);
+    // return this.http.get<HeroData[]>(this.url);
   }
 
   getHeroData(name: string): Observable<HeroData> {
-    return of(this.heroes.find(x => x.name === name));
+    // return of(this.heroes.find(x => x.name === name));
+    return this.http.get<HeroData>(this.urlOne + '/' + name);
   }
 
   addHero(e: HeroData): Observable<string> {

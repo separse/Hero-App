@@ -1,5 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -29,7 +30,7 @@ import { LogDataService } from './movies/log-data.service';
 import { LoggingService } from './Hero/logging.service';
 import { GoodDirective } from './Hero/good.directive';
 import { HeroService } from './Hero/hero.service';
-import { EditMovieComponent } from './edit-movie/edit-movie.component';
+import { EditMovieComponent } from './movies/edit-movie/edit-movie.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { EditMovieComponent } from './edit-movie/edit-movie.component';
     MatListModule,
     MatCardModule,
     MatCheckboxModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    HttpClientModule
   ],
   providers: [
     HeroService,

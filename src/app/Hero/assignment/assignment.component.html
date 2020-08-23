@@ -1,7 +1,7 @@
 <main class="container">
   <button mat-flat-button color="accent" class="addbtn" routerLink="/add">Add a Hero</button>
   <mat-list *ngFor="let item of heroes">
-    <nav><a routerLink="/heroes/{{item.name}}">
+    <!-- <nav><a routerLink="/heroes/{{item.name}}"> -->
       <h1 mat-subheader>{{item.born | date}}</h1>
       <mat-list-item (click)="getHero(item)">
         <div *ngIf="item.good; else vilan" appGood>
@@ -12,7 +12,7 @@
         </ng-template>
         <mat-divider></mat-divider>
       </mat-list-item>
-    </a></nav>
+    <!-- </a></nav> -->
   </mat-list>
 </main>
 <!-- <app-add (newHeroes)="onNewHero($event)" *ngIf="!funct"></app-add> -->

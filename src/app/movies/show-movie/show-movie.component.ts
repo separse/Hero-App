@@ -36,7 +36,8 @@ export class ShowMovieComponent implements OnInit {
   }
 
   getMovie(): void {
-    const name = this.route.snapshot.params.name;
+    this.route.params.subscribe(params => {const name = params.get('name'); });
+    // const name = this.route.snapshot.params.name;
     this.servMovieData.getSelected(name).subscribe(res => this.selected = res);
   }
 

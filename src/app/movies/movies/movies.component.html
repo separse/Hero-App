@@ -10,7 +10,8 @@
   <h3
     [ngClass]="{'bg-success': item.like,'bg-danger': !item.like}"
     class="p-2 mt-2 text-white"
-    routerLink="/movies/{{item.name}}"
+    [routerLink]="['/movies', item.name, item.like]"
+    [queryParams]="{page: 1, type: 'hero'}"
     (click)="onClick(item)">
     {{item.name}}: {{item.year | date:'y'}}
   </h3>

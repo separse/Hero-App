@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeroData } from '../hero-data';
 import { HeroService } from '../hero.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-assignment',
@@ -13,9 +14,10 @@ export class AssignmentComponent implements OnInit {
   heroes;
   gotHero: HeroData;
 
-  constructor(private service: HeroService) {
-
-   }
+  constructor(
+    private service: HeroService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {
     // setTimeout(() => {
@@ -26,7 +28,8 @@ export class AssignmentComponent implements OnInit {
   }
 
   getHero(item): void {
-    this.gotHero = item;
+    // this.gotHero = item;
+    this.router.navigate(['/heroes' + item.name]);
   }
 
   // onNewHero(e: HeroData): void {
