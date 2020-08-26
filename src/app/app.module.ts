@@ -1,21 +1,16 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserModule } from '@angular/platform-browser';
+import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './material-module';
+import { AngularFireModule } from '@angular/fire';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatListModule } from '@angular/material/list';
-import { MatCardModule } from '@angular/material/card';
-
 import { ShowMovieComponent } from './movies/show-movie/show-movie.component';
+import { EditMovieComponent } from './movies/edit-movie/edit-movie.component';
 import { AssignmentComponent } from './Hero/assignment/assignment.component';
 import { AddMovieComponent } from './movies/add-movie/add-movie.component';
 import { EditHeroComponent } from './Hero/edit-hero/edit-hero.component';
@@ -30,7 +25,6 @@ import { LogDataService } from './movies/log-data.service';
 import { LoggingService } from './Hero/logging.service';
 import { GoodDirective } from './Hero/good.directive';
 import { HeroService } from './Hero/hero.service';
-import { EditMovieComponent } from './movies/edit-movie/edit-movie.component';
 
 
 @NgModule({
@@ -50,17 +44,11 @@ import { EditMovieComponent } from './movies/edit-movie/edit-movie.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
+    MaterialModule,
     FormsModule,
-    MatNativeDateModule,
-    MatDatepickerModule,
-    MatListModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatSlideToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [
     HeroService,

@@ -1,9 +1,40 @@
-<div class="container">
-<h1><a routerLink="/home">{{head}}</a></h1>
-<mat-slide-toggle color="primary" (click)="login()">
+<mat-toolbar
+  color="primary"
+  id="mainToolbar">
+  <a routerLink="/home">Assignment App</a>
+  <span class="toolbar-spacer"></span>
+  <button mat-raised-button color="primary" (click)="login()" *ngIf="!user">Login with Google</button>
+  <button
+    *ngIf="user"
+    [mat-menu-trigger-for]="avatarDropDown"
+    mat-fab
+    color="primary"
+    class="toolbar-avatar"
+    [ngStyle]="{'background-image': 'url(' + user?.photoURL + ')'}">
+  </button>
+</mat-toolbar>
+<mat-menu #avatarDropDown="matMenu">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        {{user?.displayName}}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{user?.email}}
+      </mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+    <span>Sign out</span>
+  </button>
+</mat-menu>
+
+
+
+<!-- <mat-slide-toggle color="primary" (click)="login()">
   Login
-</mat-slide-toggle>
-</div>
+</mat-slide-toggle> -->
 <!-- <app-movies></app-movies> -->
 <!-- <app-assignment></app-assignment> -->
 <router-outlet></router-outlet>

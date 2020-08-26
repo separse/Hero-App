@@ -5,3 +5,22 @@
   justify-content: space-between;
   margin: 0 8px 2.5em 8px;
 }
+
+#mainToolbar .toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+#mainToolbar .toobar-avatar {
+  background-size: cover;
+  box-shadow: none;
+}
+ a {
+  text-decoration: none;
+  color: aliceblue;
+
+}
+
+ a:hover a:link a:visited a:active {
+  text-decoration: none;
+  color: aliceblue;
+}

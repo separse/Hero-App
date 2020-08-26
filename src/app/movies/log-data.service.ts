@@ -10,4 +10,5 @@ export class LogDataService {
   printIt(name, action): void {
     console.log(`${name} has been ${action}`);
   }
+
 }
